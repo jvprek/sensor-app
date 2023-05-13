@@ -1,0 +1,71 @@
+{
+	"info": {
+		"_postman_id": "fe7d526c-9623-4edc-8675-39bde691e0d6",
+		"name": "sensor-app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1408280"
+	},
+	"item": [
+		{
+			"name": "All Sensors",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/sensors/admin/all",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sensors",
+						"admin",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sensors By Type",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/sensors/admin/type/HUMIDITY",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sensors",
+						"admin",
+						"type",
+						"HUMIDITY"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sensor by name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/sensors/admin/DUB1_TMP",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sensors",
+						"admin",
+						"DUB1_TMP"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

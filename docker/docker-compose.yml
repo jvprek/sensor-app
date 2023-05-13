@@ -1,0 +1,16 @@
+#Bare bones MySQL 8 for experimenting with scripts
+# Use of anonymous volume
+version: '3'
+services:
+  mysql-sensors-server:
+    image: mysql:latest
+    ports:
+      - 3306:3306
+    environment:
+      - "MYSQL_ROOT_PASSWORD=root"
+    volumes:
+      - ./mysql/init:/docker-entrypoint-initdb.d
+
+
+
+

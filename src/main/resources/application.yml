@@ -1,0 +1,13 @@
+server:
+  port: 8080
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/sensors
+    username: sensors
+    password: sensors
+    driver-class-name: com.mysql.cj.jdbc.Driver
