@@ -5,13 +5,16 @@ import com.example.sensorapp.db.repository.SensorRepository;
 import com.example.sensorapp.rest.model.SensorDTO;
 import com.example.sensorapp.service.SensorMapper;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Validated
 @RestController
 @RequestMapping("/sensors/admin")
 public class AdminAPI {
@@ -35,12 +38,14 @@ public class AdminAPI {
     }
     // Endpoint to list all sensors with a given type
     @GetMapping("/type/{type}")
-    public List<SensorDTO> getSensorsByType(@NotNull @PathVariable String type) {
+    public List<SensorDTO> getSensorsByType(@Pattern(regexp = "(TEMPERATURE|HUMIDITY|WIND_SPEED|WIND_DIRECTION)") @PathVariable String type) {
         var typeValue = SensorType.valueOf(type);
         var entityList =  repository.findSensorByType(typeValue);
         var dtoList = entityList.stream().map(mapper::entityToDto).collect(Collectors.toList());
         return dtoList;
     }
+
+
 
     // Endpoint to list all sensors
     @GetMapping("/all")
